@@ -1,5 +1,6 @@
 package com.bytelegend;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -84,6 +85,7 @@ public class GitHubApiCommitObject {
     static class Parents {
         private String url;
         private String sha;
+        @JsonProperty("html_url")
         private String htmlUrl;
 
         public String getUrl() {
@@ -173,16 +175,18 @@ public class GitHubApiCommitObject {
     }
 
     private String sha;
-    private String nodeId;
+    @JsonProperty("node_id")
+    private String nodeID;
     private String url;
+    @JsonProperty("html_url")
     private String htmlUrl;
 
-    public String getNodeId() {
-        return nodeId;
+    public String getNodeID() {
+        return nodeID;
     }
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
+    public void setNodeID(String nodeID) {
+        this.nodeID = nodeID;
     }
 
     public String getHtmlUrl() {
