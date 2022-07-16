@@ -114,8 +114,6 @@ import java.util.List;
         this.verification = verification;
     }
 
-}
-
 class Committer {
     private String date;
     private String name;
