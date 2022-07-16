@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class GitHubApiCommitObject {
-    public static GitHubApiCommitObject fromJson(String json) throws JsonProcessingException {
+    public static GitHubApiCommitObject fromJson(String jsosn) throws JsonProcessingException {
         ObjectMapper mapper =
                 new ObjectMapper()
                         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
