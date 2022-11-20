@@ -9,6 +9,57 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class GitHubApiCommitObject {
+    private String sha;
+    private String nodeId;
+    private String url;
+    private String htmlUrl;
+    private Person author;
+    private Person committer;
+    private String message;
+    private List<Parent> parents;
+    private Verification verification;
+    private Tree tree;
+
+    public List<Parent> getParents() {
+        return parents;
+    }
+
+    public Tree getTree() {
+        return tree;
+    }
+
+    public String getSha() {
+        return sha;
+    }
+
+    public String getNodeId() {
+        return nodeId;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getHtmlUrl() {
+        return htmlUrl;
+    }
+
+    public Person getAuthor() {
+        return author;
+    }
+
+    public Person getCommitter() {
+        return committer;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public Verification getVerification() {
+        return verification;
+    }
+
     public static GitHubApiCommitObject fromJson(String json) throws JsonProcessingException {
         ObjectMapper mapper =
                 new ObjectMapper()
@@ -19,5 +70,78 @@ public class GitHubApiCommitObject {
     public static void main(String[] args) throws IOException {
         String json = new String(Files.readAllBytes(new File("./commit.json").toPath()));
         GitHubApiCommitObject commit = GitHubApiCommitObject.fromJson(json);
+    }
+
+    
+    class Person {
+        private String date;
+        private String name;
+        private String email;
+
+        public String getDate() {
+            return date;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+    }
+
+    class Tree {
+        private String url;
+        private String sha;
+
+        public String getUrl() {
+            return url;
+        }
+
+        public String getSha() {
+            return sha;
+        }
+    }
+
+    class Parent {
+        private String url;
+        private String sha;
+        private String htmlUrl;
+
+        public String getUrl() {
+            return url;
+        }
+
+        public String getSha() {
+            return sha;
+        }
+
+        public String getHtmlUrl() {
+            return htmlUrl;
+        }
+    }
+
+    class Verification {
+        private boolean verified;
+        private String reason;
+        private String signature;
+        private String payload;
+
+        public boolean isVerified() {
+            return verified;
+        }
+
+        public String getReason() {
+            return reason;
+        }
+
+        public String getSignature() {
+            return signature;
+        }
+
+        public String getPayload() {
+            return payload;
+        }
     }
 }
