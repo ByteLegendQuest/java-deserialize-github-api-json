@@ -1,5 +1,6 @@
 package com.bytelegend;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,14 +12,17 @@ import java.util.List;
 
 public class GitHubApiCommitObject {
     private String sha;
+    @JsonProperty("node_id")
     private String nodeId;
     private String url;
+    @JsonProperty("html_url")
     private String htmlUrl;
     private Person author;
     private Person committer;
     private String message;
     private List<Parent> parents;
     private Verification verification;
+
     private Tree tree;
 
     public List<Parent> getParents() {
@@ -74,7 +78,7 @@ public class GitHubApiCommitObject {
     }
 
     
-    class Person {
+    static class Person {
         private String date;
         private String name;
         private String email;
@@ -92,7 +96,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    class Tree {
+    static class Tree {
         private String url;
         private String sha;
 
@@ -105,9 +109,10 @@ public class GitHubApiCommitObject {
         }
     }
 
-    class Parent {
+    static class Parent {
         private String url;
         private String sha;
+        @JsonProperty("html_url")
         private String htmlUrl;
 
         public String getUrl() {
@@ -123,7 +128,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    class Verification {
+    static class Verification {
         private boolean verified;
         private String reason;
         private String signature;
