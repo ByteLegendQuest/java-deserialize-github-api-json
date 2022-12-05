@@ -106,7 +106,37 @@ public class GitHubApiCommitObject {
         this.verification = verification;
     }
 
-    public class Author {
+   static class Author {
+
+        private String Date;
+        private String name;
+        private String email;
+
+        public String getDate() {
+            return Date;
+        }
+
+        public void setDate(String date) {
+            Date = date;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+    }
+   static class Committer {
 
         private String Date;
         private String name;
@@ -137,38 +167,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    public class Committer {
-
-        private String Date;
-        private String name;
-        private String email;
-
-        public String getDate() {
-            return Date;
-        }
-
-        public void setDate(String date) {
-            Date = date;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-    }
-
-    public class Parents {
+   static class Parents {
         private String sha;
         private String url;
         @JsonProperty("html_url")
@@ -199,7 +198,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    public class Tree {
+   static public class Tree {
         private String sha;
         private String url;
 
@@ -220,7 +219,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    public class Verification {
+   static class Verification {
 
         private String reason;
         private String signature;
@@ -256,7 +255,7 @@ public class GitHubApiCommitObject {
             this.payload = payload;
         }
     }
-    
+
     public static GitHubApiCommitObject fromJson(String json) throws JsonProcessingException {
         ObjectMapper mapper =
                 new ObjectMapper()
