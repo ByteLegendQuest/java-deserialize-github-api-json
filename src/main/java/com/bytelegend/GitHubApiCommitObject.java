@@ -111,7 +111,7 @@ public class GitHubApiCommitObject {
         this.verification = verification;
     }
 
-    public class User {
+    public static class User {
         private Date date;
         private String name;
 
@@ -142,7 +142,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    public class Item {
+    public static class Item {
 
         private String url;
 
@@ -175,7 +175,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    public class Verification {
+    public static class Verification {
         private Boolean verified;
 
         private String reason;
