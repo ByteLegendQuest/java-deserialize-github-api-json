@@ -108,8 +108,8 @@ public class GitHubApiCommitObject {
     public void setVerfication(Verfication verfication) {
         this.verfication = verfication;
     }
-    
-    private class User {
+
+    public class User {
         private Date date;
         private String name;
 
@@ -140,7 +140,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    private class Item {
+    public class Item {
 
         private String url;
 
@@ -173,7 +173,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    private class Verfication {
+    public class Verfication {
         private Boolean verified;
 
         private String reason;
