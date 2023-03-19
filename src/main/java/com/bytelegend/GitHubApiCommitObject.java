@@ -29,7 +29,7 @@ public class GitHubApiCommitObject {
 
     private List<Item> parents;
 
-    private Verfication verfication;
+    private Verification verification;
 
     public String getSha() {
         return sha;
@@ -103,12 +103,12 @@ public class GitHubApiCommitObject {
         this.parents = parents;
     }
 
-    public Verfication getVerfication() {
-        return verfication;
+    public Verfication getVerification() {
+        return verification;
     }
 
-    public void setVerfication(Verfication verfication) {
-        this.verfication = verfication;
+    public void setVerification(Verification verification) {
+        this.verification = verification;
     }
 
     public class User {
@@ -175,7 +175,7 @@ public class GitHubApiCommitObject {
         }
     }
 
-    public class Verfication {
+    public class Verification {
         private Boolean verified;
 
         private String reason;
@@ -184,7 +184,7 @@ public class GitHubApiCommitObject {
 
         private String payload;
 
-        public Boolean getVerified() {
+        public Boolean isVerified() {
             return verified;
         }
 
