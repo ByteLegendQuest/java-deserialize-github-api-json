@@ -144,6 +144,7 @@ public class GitHubApiCommitObject {
         }
     }
 
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     public static class Item {
 
         private String url;
