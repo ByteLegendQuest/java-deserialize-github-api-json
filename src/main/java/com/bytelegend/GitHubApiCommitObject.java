@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Date;
 import java.util.List;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
@@ -115,16 +114,16 @@ public class GitHubApiCommitObject {
     }
 
     public static class User {
-        private Date date;
+        private String date;
         private String name;
 
         private String email;
 
-        public Date getDate() {
+        public String getDate() {
             return date;
         }
 
-        public void setDate(Date date) {
+        public void setDate(String date) {
             this.date = date;
         }
 
