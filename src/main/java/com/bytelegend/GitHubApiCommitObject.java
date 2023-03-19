@@ -3,6 +3,8 @@ package com.bytelegend;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +12,7 @@ import java.nio.file.Files;
 import java.util.Date;
 import java.util.List;
 
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class GitHubApiCommitObject {
     private String sha;
 
