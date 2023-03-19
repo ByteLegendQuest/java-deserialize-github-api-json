@@ -103,7 +103,7 @@ public class GitHubApiCommitObject {
         this.parents = parents;
     }
 
-    public Verfication getVerification() {
+    public Verification getVerification() {
         return verification;
     }
 
