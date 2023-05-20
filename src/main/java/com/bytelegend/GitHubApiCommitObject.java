@@ -28,7 +28,7 @@ public class GitHubApiCommitObject {
         return sha;
     }
 
-    private String nodeId;
+    private String node_id;
     public String getNodeId() {
         return nodeId;
     }
@@ -38,7 +38,7 @@ public class GitHubApiCommitObject {
         return url;
     }
 
-    private String htmlUrl;
+    private String html_url;
     public String getHtmlUrl() {
         return htmlUrl;
     }
