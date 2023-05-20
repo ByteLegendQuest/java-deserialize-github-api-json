@@ -3,6 +3,7 @@ package com.bytelegend;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonProperty;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +29,8 @@ public class GitHubApiCommitObject {
         return sha;
     }
 
-    private String node_id;
+    @JsonProperty("node_id")
+    private String nodeId;
     public String getNodeId() {
         return nodeId;
     }
@@ -38,7 +40,8 @@ public class GitHubApiCommitObject {
         return url;
     }
 
-    private String html_url;
+    @JsonProperty("html_url")
+    private String htmlUrl;
     public String getHtmlUrl() {
         return htmlUrl;
     }
