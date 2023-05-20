@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.List;
+import java.util.ArrayList;
 
 public class GitHubApiCommitObject {
     public static GitHubApiCommitObject fromJson(String json) throws JsonProcessingException {
