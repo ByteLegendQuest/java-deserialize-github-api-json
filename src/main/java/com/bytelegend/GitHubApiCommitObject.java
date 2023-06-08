@@ -4,78 +4,63 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
-public class GitHubApiCommitObject extends NodeWithHtml {
+public class GitHubApiCommitObject {
 
-    String nodeId;
+    private String nodeId;
+    private String url;
+    private String sha;
+    private String htmlUrl;
+    private Person author;
+    private Person committer;
+    private String message;
+    private Node tree;
+    private List<NodeWithHtml> parents;
+    private Verification verification;
 
     public String getNodeId() {
         return nodeId;
     }
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
+    public String getUrl() {
+        return url;
     }
 
-    Person author;
-    Person committer;
-    String message;
-    Node tree;
-    List<NodeWithHtml> parents;
-    Verification verification;
+    public String getSha() {
+        return sha;
+    }
+
+    public String getHtmlUrl() {
+        return htmlUrl;
+    }
 
     public Person getAuthor() {
         return author;
-    }
-
-    public void setAuthor(Person author) {
-        this.author = author;
     }
 
     public Person getCommitter() {
         return committer;
     }
 
-    public void setCommitter(Person committer) {
-        this.committer = committer;
-    }
-
     public String getMessage() {
         return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public Node getTree() {
         return tree;
     }
 
-    public void setTree(Node tree) {
-        this.tree = tree;
-    }
-
     public List<NodeWithHtml> getParents() {
         return parents;
     }
 
-    public void setParents(List<NodeWithHtml> parents) {
-        this.parents = parents;
-    }
-
     public Verification getVerification() {
         return verification;
-    }
-
-    public void setVerification(Verification verification) {
-        this.verification = verification;
     }
 
     public static GitHubApiCommitObject fromJson(String json) throws JsonProcessingException {
@@ -89,5 +74,68 @@ public class GitHubApiCommitObject extends NodeWithHtml {
     public static void main(String[] args) throws IOException {
         String json = new String(Files.readAllBytes(new File("./commit.json").toPath()));
         GitHubApiCommitObject commit = GitHubApiCommitObject.fromJson(json);
+    }
+
+    public static class Verification {
+        boolean verified;
+        String reason;
+        String signature;
+        String payload;
+
+        public boolean isVerified() {
+            return verified;
+        }
+
+        public String getReason() {
+            return reason;
+        }
+
+        public String getSignature() {
+            return signature;
+        }
+
+        public String getPayload() {
+            return payload;
+        }
+
+    }
+
+    public static class Node {
+        String url;
+        String sha;
+
+        public String getUrl() {
+            return url;
+        }
+
+        public String getSha() {
+            return sha;
+        }
+    }
+
+    public static class NodeWithHtml extends Node {
+        String htmlUrl;
+
+        public String getHtmlUrl() {
+            return htmlUrl;
+        }
+    }
+
+    public static class Person {
+        String date;
+        String name;
+        String email;
+
+        public String getDate() {
+            return date;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getEmail() {
+            return email;
+        }
     }
 }
