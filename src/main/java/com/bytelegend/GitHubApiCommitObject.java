@@ -3,6 +3,8 @@ package com.bytelegend;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,15 +13,16 @@ import java.util.List;
 
 public class GitHubApiCommitObject extends NodeWithHtml {
 
-    String node_id;
+    String nodeId;
 
     public String getNodeId() {
-        return node_id;
+        return nodeId;
     }
 
-    public void setNode_id(String node_id) {
-        this.node_id = node_id;
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
     }
+
     Person author;
     Person committer;
     String message;
@@ -78,6 +81,7 @@ public class GitHubApiCommitObject extends NodeWithHtml {
     public static GitHubApiCommitObject fromJson(String json) throws JsonProcessingException {
         ObjectMapper mapper =
                 new ObjectMapper()
+                        .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
                         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return mapper.readValue(json, GitHubApiCommitObject.class);
     }
